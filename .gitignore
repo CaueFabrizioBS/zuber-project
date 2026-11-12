@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local copies of files delivered by Claude (TripleTen version of the notebook)
+Claude outputs/
