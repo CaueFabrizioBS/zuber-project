@@ -8,7 +8,7 @@ This project answers those questions with real taxi data from November 2017. It 
 
 - **Demand is concentrated downtown.** Four central neighborhoods (Loop, River North, Streeterville and West Loop) receive about 57% of all drop-offs. O'Hare airport is the main destination outside the center.
 - **The competition is a small group.** There are 64 taxi companies, but the 10 biggest hold about 72% of the rides, with Flash Cab clearly in front.
-- **Rain does not reduce airport rides, but it makes them longer.** On rainy Saturdays, the number of rides per hour from the Loop to O'Hare stays about the same. The average ride, however, takes about 7 minutes more (40.5 against 33.3 minutes), and the difference is statistically significant.
+- **There is no clear sign that rain reduces airport rides, but it makes them longer.** On rainy Saturdays, the number of rides per hour from the Loop to O'Hare stays about the same. The average ride, however, takes about 7 minutes more (40.5 against 33.3 minutes), and the difference is statistically significant. The weather results come from four Saturdays, so they are worth confirming with more data.
 
 In short: Zuber can focus its launch on downtown and the airport route, keep an eye on a handful of large competitors, and prepare for bad weather by adjusting time estimates and having more cars available.
 
@@ -27,11 +27,12 @@ zuber-project/
 │   └── 06_loop_to_ohare_saturdays.sql
 ├── 03_analysis/
 │   └── zuber_analysis.ipynb
-└── data/
-    ├── weather_records.csv
-    ├── project_sql_result_01.csv
-    ├── project_sql_result_04.csv
-    └── project_sql_result_07.csv
+├── data/
+│   ├── weather_records.csv
+│   ├── project_sql_result_01.csv
+│   ├── project_sql_result_04.csv
+│   └── project_sql_result_07.csv
+└── requirements.txt
 ```
 
 The folders are numbered in the order the work happened.
@@ -89,7 +90,7 @@ The notebook `03_analysis/zuber_analysis.ipynb` brings everything together:
 ## How to run it
 
 ```
-pip install pandas requests beautifulsoup4 lxml matplotlib scipy jupyter
+pip install -r requirements.txt
 python 01_web_scraping/weather_records.py
 ```
 

@@ -1,6 +1,6 @@
-pandas
-matplotlib
-scipy
-requests
-beautifulsoup4
-lxml
+pandas==3.1.1
+matplotlib==3.11.2
+scipy==1.18.1
+requests==2.34.2
+beautifulsoup4==4.15.0
+lxml==6.1.3

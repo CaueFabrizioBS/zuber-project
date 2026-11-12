@@ -16,6 +16,9 @@ URL = "https://practicum-content.s3.us-west-1.amazonaws.com/data-analyst-eng/mov
 # Download the page. At this point all we have is one long string of raw HTML.
 response = requests.get(URL)
 
+# Stop here with a clear error if the page did not load.
+response.raise_for_status()
+
 # Let BeautifulSoup parse that string so we can search it by tag,
 # then pick the one table we care about using its id.
 soup = BeautifulSoup(response.text, "lxml")
@@ -33,6 +36,11 @@ for row in table.find_all("tr"):
 
 # Put names and rows together into the final DataFrame.
 weather_records = pd.DataFrame(content, columns=heading_table)
+
+# Everything that comes from .text is a string, so the date and the temperature are converted.
+weather_records["Date and time"] = pd.to_datetime(weather_records["Date and time"])
+weather_records["Temperature"] = pd.to_numeric(weather_records["Temperature"])
+
 print(weather_records)
 
 # Save the table next to the other datasets, so the analysis notebook
